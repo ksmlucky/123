@@ -19,7 +19,6 @@ public class Num1065 {
 
     public static int count(int num) {
         int cnt = 0;
-
         if (num < 100) {
             return num;
         }
