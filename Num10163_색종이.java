@@ -15,7 +15,6 @@ public class Num10163_색종이 {
         StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
         int[][] arr = new int[1001][1001];
-        int[][] papers = new int[N][4];
         for (int i = 1; i <= N; i++) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
