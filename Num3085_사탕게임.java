@@ -77,8 +77,8 @@ public class Num3085_사탕게임 {
         for (int i = 0; i < N; i++) {
             // 행검사
             int count = 1;
-            for (int j = 1; j < N; j++) {
-                if (map[i][j] == map[i][j - 1]) {
+            for (int j = 0; j < N - 1; j++) {
+                if (map[i][j] == map[i][j + 1]) {
                     count++;
                 } else {
                     count = 1;
@@ -88,8 +88,8 @@ public class Num3085_사탕게임 {
 
             // 열검사
             count = 1;
-            for (int j = 1; j < N; j++) {
-                if (map[j][i] == map[j - 1][i]) {
+            for (int j = 0; j < N - 1; j++) {
+                if (map[j][i] == map[j + 1][i]) {
                     count++;
                 } else {
                     count = 1;
