@@ -10,7 +10,6 @@ import java.io.InputStreamReader;
 public class Num3085_사탕게임 {
     static int N;
     static char[][] map;
-    static char[][] tempMap;
     static int[] dr = {-1, 1, 0, 0};
     static int[] dc = {0, 0, -1, 1};
 
@@ -20,7 +19,6 @@ public class Num3085_사탕게임 {
         N = Integer.parseInt(br.readLine());
 
         map = new char[N][N];
-        tempMap = new char[N][N];
 
 
         // 입력
@@ -28,7 +26,6 @@ public class Num3085_사탕게임 {
             String str = br.readLine();
             for (int j = 0; j < N; j++) {
                 map[i][j] = str.charAt(j);
-                tempMap[i][j] = str.charAt(j);
             }
         }
 
@@ -55,17 +52,17 @@ public class Num3085_사탕게임 {
                     // 인접한 애들이 다르면
                     if (map[r][c] != map[nr][nc]) {
                         // 스왑
-                        char temp = tempMap[nr][nc];
-                        tempMap[nr][nc] = tempMap[r][c];
-                        tempMap[r][c] = temp;
+                        char temp = map[nr][nc];
+                        map[nr][nc] = map[r][c];
+                        map[r][c] = temp;
 
                         // 먹을 수 있는 사탕 개수 세기
                         max = Math.max(max, solution());
 
                         // 원래대로 돌려놓기
-                        temp = tempMap[nr][nc];
-                        tempMap[nr][nc] = tempMap[r][c];
-                        tempMap[r][c] = temp;
+                        temp = map[nr][nc];
+                        map[nr][nc] = map[r][c];
+                        map[r][c] = temp;
                     }
                 }
             }
@@ -81,7 +78,7 @@ public class Num3085_사탕게임 {
             // 행검사
             int count = 1;
             for (int j = 1; j < N; j++) {
-                if (tempMap[i][j] == tempMap[i][j - 1]) {
+                if (map[i][j] == map[i][j - 1]) {
                     count++;
                 } else {
                     count = 1;
@@ -92,7 +89,7 @@ public class Num3085_사탕게임 {
             // 열검사
             count = 1;
             for (int j = 1; j < N; j++) {
-                if (tempMap[j][i] == tempMap[j - 1][i]) {
+                if (map[j][i] == map[j - 1][i]) {
                     count++;
                 } else {
                     count = 1;
